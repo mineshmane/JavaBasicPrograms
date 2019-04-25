@@ -142,8 +142,7 @@ public class LinkedList {
 		}
 	}
 	
-	public String toString()
-	{
+	public String toString()	{
 		Node temp;
 		 temp= head;
 		String s = "";

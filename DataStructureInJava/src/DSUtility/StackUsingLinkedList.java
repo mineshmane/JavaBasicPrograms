@@ -4,10 +4,10 @@ public class StackUsingLinkedList<T> {
 
 	
 		/*Creating a inner class to hold node variables*/
-		private class Node
-		{
+	 class Node	{
+		 
 			T data ;
-			Node ref;
+			Node refLink;
 		}
 		Node top;
 		int size;
@@ -28,7 +28,7 @@ public class StackUsingLinkedList<T> {
 				 return;
 			 }
 			 node.data=data;// Storing data
-			 node.ref=top;//changing the reference value
+			 node.refLink=top;//changing the reference value
 			 top=node;//Changing top node
 		 }
 		 /**
@@ -43,7 +43,7 @@ public class StackUsingLinkedList<T> {
 				 return null;
 			 }
 			 T data=top.data;
-			 top=(top).ref;
+			 top=(top).refLink;
 			 return data;
 		 }
 		 /**
@@ -63,7 +63,7 @@ public class StackUsingLinkedList<T> {
 		 		while (temp!=null)
 		 		{
 		 			System.out.print(temp.data+" "); // printing data
-		 			temp=temp.ref; // changing reference value
+		 			temp=temp.refLink; // changing reference value
 		 		}
 		 			
 		 	}

@@ -1,7 +1,5 @@
 package Calender;
 
-import BridgeIt.util.utility;
-
 public class Calender {
 
 	public static int day(int month, int day, int year) {
@@ -37,7 +35,7 @@ public class Calender {
 				"November", "December" };
 
 		// days[i] = number of days in month i
-		int[] days = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		int[] days = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 		// check for leap year
 		if (month == 2 && isLeapYear(year))

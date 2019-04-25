@@ -1,16 +1,17 @@
 package DSUtility;
 
 public class QueueUsingLinkedList<T> {
+
 	/* Inner class to declear a node variables */
 	public class Node {
 		T data;
-		Node ref;
+		Node next;
 	}
 
 	int size;
-	Node head;
+	//Node head;
 	Node front;
-	Node tail;
+	Node rear;
 
 	/**
 	 * @param integer : It takes integer value as command line arguments
@@ -18,15 +19,16 @@ public class QueueUsingLinkedList<T> {
 	 * @return : void
 	 */
 	public void insert(T data) {
+
 		Node node = new Node();// Creating object to node inner class
 		node.data = data; // Storing data to data variable
 		size++;
-		if (tail == null) {
+		if (rear == null) {
 			front = node;// Making node as front
-			tail = node; // Making node as rear
+			rear = node; // Making node as rear
 		}
-		tail.ref = node;// Changing reference value
-		tail = node;// Changing rear
+		rear.next = node;// Changing reference value
+		rear = node;// Changing rear
 	}
 
 	/**
@@ -35,10 +37,10 @@ public class QueueUsingLinkedList<T> {
 	 */
 	public void display() {
 		Node temp = front;
-		while (temp.ref != null) // Condition to print elements
+		while (temp.next != null) // Condition to print elements
 		{
 			System.out.print(temp.data + "  ");
-			temp = temp.ref; // Changing reference value
+			temp = temp.next; // Changing reference value
 		}
 		System.out.println(temp.data + "  "); // Printing last data element
 	}
@@ -53,7 +55,7 @@ public class QueueUsingLinkedList<T> {
 			return null;
 		} else {
 			T data = front.data;
-			front = front.ref;// Changing reference value
+			front = front.next;// Changing reference value
 			return data;
 		}
 	}

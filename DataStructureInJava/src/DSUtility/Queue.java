@@ -6,7 +6,7 @@ public class Queue<T> {
 	int front;
 	int rear;
 	int capacity;
-	int count;
+	int currentSize;
 
 	/* calling constructor to initialize array size */
 	public Queue(int capacity) {
@@ -15,13 +15,9 @@ public class Queue<T> {
 		arr = new String[capacity];
 	}
 
-	/**
-	 * @purpose : to find objects are full are not in object
-	 * @return : boolean
-	 */
+	
 
 	/**
-	 * @param string : It takes string as command line arguments
 	 * @purpose : To add a string element to object at front
 	 * @return : void
 	 */
@@ -29,31 +25,31 @@ public class Queue<T> {
 	public void enQueue(String data) {
 
 		arr[rear] = data;
-		rear++;
+		rear++;// Rear is incremented by one 
 
-		count++;
+		currentSize++;
 
 	}
 
 	/**
 	 * @purpose : to find no of elements in object
-	 * @return : int
+	 * @return : integer total number of element in queue
 	 */
 	public int size() {
-		return count; // returns the size of array
+		return currentSize; // returns the size of array
 	}
 
 	/**
 	 * @purpose : To remove element
 	 * @return : void
 	 */
+	@SuppressWarnings("unused")
 	public void deQueue() {
 
 		String temp = arr[front];
-		front++;
-		count--;
-
-// changing position to remove element
+		front++;  // front is ++  changing position to removed element
+		System.out.println("removed from queue  "+front);
+		currentSize--;
 
 	}
 
@@ -64,7 +60,7 @@ public class Queue<T> {
 
 	public void show() {
 		/* for loop to display all elements in queue */
-		for(int i = 0; i <count; i++) {
+		for(int i = 0; i <currentSize; i++) {
 			System.out.print(arr[front + i] + " ");
 		}
 		System.out.println();

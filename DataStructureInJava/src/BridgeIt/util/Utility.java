@@ -1,12 +1,17 @@
 package BridgeIt.util;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
+import DSUtility.LinkedList;
+import DSUtility.Node;
 
 public class Utility {
 	static Scanner sc = new Scanner(System.in);
@@ -17,7 +22,7 @@ public class Utility {
 	 *          value
 	 * @return :int
 	 **/
-	public static int inputInt() {
+	public static int getInt() {
 		return sc.nextInt();
 	}
 
@@ -131,18 +136,18 @@ public class Utility {
 		System.out.println("Enter 1 for integer array");
 		System.out.println("Enter 2 for double array");
 		System.out.println("Enter 3 for boolean array");
-		int choice = Utility.inputInt();
+		int choice = Utility.getInt();
 		switch (choice) {
 		case 1:
 			System.out.println("Enter rows of array");
-			int rows = Utility.inputInt();
+			int rows = Utility.getInt();
 			System.out.println("Enter coloums of array");
-			int coloums = Utility.inputInt();
+			int coloums = Utility.getInt();
 			int arr[][] = new int[rows][coloums];
 			System.out.println("Enter your array");
 			for (int i = 0; i < arr.length; i++) {
 				for (int j = 0; j < arr.length; j++) {
-					arr[i][j] = Utility.inputInt();
+					arr[i][j] = Utility.getInt();
 				}
 			}
 			for (int i = 0; i < arr.length; i++) {
@@ -155,9 +160,9 @@ public class Utility {
 			break;
 		case 2:
 			System.out.println("Enter rows of array");
-			int rowd = Utility.inputInt();
+			int rowd = Utility.getInt();
 			System.out.println("Enter coloums of array");
-			int coloumd = Utility.inputInt();
+			int coloumd = Utility.getInt();
 
 			double arrd[][] = new double[rowd][coloumd];
 			System.out.println("Enter your array");
@@ -177,9 +182,9 @@ public class Utility {
 
 		case 3:
 			System.out.println("Enter rows of array: ");
-			int rowb = Utility.inputInt();
+			int rowb = Utility.getInt();
 			System.out.println("Enter coloums of array: ");
-			int coloumb = Utility.inputInt();
+			int coloumb = Utility.getInt();
 
 			boolean arrb[][] = new boolean[rowb][coloumb];
 			System.out.println("Enter your array");
@@ -263,7 +268,7 @@ public class Utility {
 		int i = 0;
 		// creating a string type array list to store prime numbers
 		ArrayList<String> al = new ArrayList<String>();
-		// loop to repeate range times
+		// loop to repeat range times
 		for (i = 2; i <= range; i++) {
 			int count = 0;
 			for (int j = 2; j <= i - 1; j++) {
@@ -274,7 +279,7 @@ public class Utility {
 			}
 			if (count == 0) {
 
-				al.add(i + "");// adding prime numbers to arraylist
+				al.add(i + "");// adding prime numbers to array list
 			}
 		}
 		return al;
@@ -325,7 +330,7 @@ public class Utility {
 	 **/
 	public static void palindrome() {
 		System.out.println("Enter range of prime numbers ");
-		int range = Utility.inputInt();
+		int range = Utility.getInt();
 		boolean isPrime;
 		int rem, temp, reversed;
 		for (int number = 2; number <= range; number++) {
@@ -420,11 +425,11 @@ public class Utility {
 	 **/
 	public static void binarySearchForInt() {
 		System.out.println("Enter number of elements: ");
-		int n = Utility.inputInt();
+		int n = Utility.getInt();
 		int array[] = new int[n];
 		System.out.println("Enter " + n + " array elements");
 		for (int i = 0; i <= array.length - 1; i++) {
-			array[i] = Utility.inputInt();
+			array[i] = Utility.getInt();
 		}
 		int firstIndex = 0;
 		int lastIndex = array.length - 1;
@@ -433,7 +438,7 @@ public class Utility {
 		long startTime = System.nanoTime();
 		long stopTime = 0;
 		System.out.println("Enter search element: ");
-		int searchElement = Utility.inputInt();
+		int searchElement = Utility.getInt();
 		while (firstIndex <= lastIndex) {
 			if (array[mid] == searchElement) {
 				stopTime = System.nanoTime();
@@ -463,11 +468,11 @@ public class Utility {
 	 **/
 	public static void insertionSortForInt() {
 		System.out.println("Enter number of elements: ");
-		int n = Utility.inputInt();
+		int n = Utility.getInt();
 		int[] array = new int[n];
 		System.out.println("Enter array elements:");
 		for (int i = 0; i < n; i++) {
-			array[i] = Utility.inputInt();
+			array[i] = Utility.getInt();
 		}
 		long startTime = System.nanoTime();
 		long stopTime;
@@ -530,13 +535,13 @@ public class Utility {
 	 **/
 	public static void bubbleSortForInteger() {
 		System.out.println("Enter sorted array size:  ");
-		int n = Utility.inputInt();
+		int n = Utility.getInt();
 		int[] array = new int[n];
 		long startTime = System.nanoTime();
 		long stopTime;
 		System.out.println("Enter sorted elements: ");
 		for (int i = 0; i <= array.length - 1; i++) {
-			array[i] = Utility.inputInt();
+			array[i] = Utility.getInt();
 		}
 		for (int i = 0; i <= array.length - 1; i++) {
 			int temp;
@@ -623,7 +628,7 @@ public class Utility {
 	public static double temperatureConvertion() {
 		System.out.println("Enter 0 for convert temperature into fahrenheit to celsius: ");
 		System.out.println("Enter 1 for convert temperature into celsius to fahrenheit: ");
-		int choice = Utility.inputInt();
+		int choice = Utility.getInt();
 		/* convertion of celsius temperature */
 		if (choice == 0) {
 			System.out.println("Enter temperature in fahrenheit: ");
@@ -978,5 +983,28 @@ public class Utility {
 		return prime; // returning prime array
 
 	}
-
+	
+	@SuppressWarnings("rawtypes")
+	public static void writeTofile(LinkedList list,String path) {
+		if(list==null) {
+			return;
+		}
+		Node head =null;
+		Node curr=head;
+		try {
+			BufferedWriter bw=new BufferedWriter(new FileWriter(path));{
+				while(curr!=null) {
+					bw.write(curr.GetData().toString());
+					curr=curr.GetNext();
+				}
+			}
+			bw.close();//saving file
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	
+	}
+	
 }
